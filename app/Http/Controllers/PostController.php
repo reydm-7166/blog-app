@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\Main;
 
-class MainIngredientController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class MainIngredientController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        //
     }
 
     /**
@@ -26,26 +24,6 @@ class MainIngredientController extends Controller
     public function create()
     {
         //
-    }
-
-    public function search(Request $request){
-
-        $all = DB::table('dish')
-        ->join('mains', 'dish.id', '=', 'mains.dish_id')
-        ->leftJoin('seconds', 'seconds.mains_id', '=', 'mains.id')
-        ->where('mains.main1', $request->main1)
-        ->orWhere('mains.main2', $request->main2)
-        ->orWhere('mains.main1', $request->main2)
-        ->orWhere('mains.main2', $request->main1)
-        ->select('*', 'mains.id as mainsID', 'dish.id as dishID', 'seconds.id as secondsID')
-        ->get();
-
-
-        //print_r($all);
-        //dd($request);
-        //$primary = Main::where('main1', $request->main1)->orWhere('main2', $request->main2)->get();
-
-        return view('user.result')->with('primary', $all);
     }
 
     /**
@@ -65,9 +43,9 @@ class MainIngredientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($dish, $id)
+    public function show($id)
     {
-        return "im show";
+        //
     }
 
     /**

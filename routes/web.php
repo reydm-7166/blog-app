@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainIngredientController;
-
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +14,7 @@ use App\Http\Controllers\MainIngredientController;
 */
 
 Route::get('/', function () {
-    return view('user.index');
+    return view('welcome');
 });
 
-Route::get('index', [MainIngredientController::class, 'index'])->name('main.index');
-
-Route::get('search', [MainIngredientController::class, 'search'])->name('main.search');
-
-Route::get('show/{dish}/{main}', [MainIngredientController::class, 'show']);
-
+Route::get('login', [LoginController::class, 'index'])->name('login.index');
