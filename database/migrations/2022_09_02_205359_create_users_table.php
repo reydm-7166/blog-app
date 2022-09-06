@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('first_name', 45);
             $table->string('last_name', 45);
             $table->integer('age')->length(10);
-            $table->string('email', 145);
+            $table->string('email_address', 145);
             $table->string('password', 45);
             $table->string('profile_picture', 255);
             $table->timestamps();

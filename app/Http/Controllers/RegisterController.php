@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -35,11 +37,23 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'first_name' => ['required', 'alpha', 'max:45'],
-            'last_name' => ['required', 'alpha', 'max:45'],
-            'email' => ['required', 'email', 'unique:users, email'],
+            'first_name' => ['required', 'alpha', 'min:3', 'max:45'],
+            'last_name' => ['required', 'alpha', 'min:3',  'max:45'],
+            'email_address' => ['required','unique:users,email_address'],
             'password' => ['required', 'min: 8', 'max: 16']
         ]);
+
+
+        Users::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'age' => 18,
+            'email_address' => $request->email_address,
+            'password' => $request->password,
+            'profile_picture' => 'pphehe'  
+        ]);
+        
+        return view('user.login');
     }
 
     /**

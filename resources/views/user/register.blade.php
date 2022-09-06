@@ -34,23 +34,38 @@
             <div id="forms" class="mt-3 w-100">
                 <form action="{{ route('register.store') }}" method="POST">
                     @csrf
-                    
-                    <div id="first_name" class=" border border-black w-75">
+
+                    <div id="first_name" class="w-75">
                         <label for="" class="font">First Name</label>
-                        <input type="text" name="first_name" class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('first_name') ? " form-error" : "")}}" placeholder="ex. John">
+                        <input type="text" name="first_name" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('first_name') ? " form-error" : "")}}" placeholder="ex. John">
                         @if($errors->first('first_name'))
-                            <small class="form-text text-muted d-block text-danger">{{ $errors->first('first_name') }}</small>
+                            <small class="form-text d-block text-danger">{{ $errors->first('first_name') }}</small>
                         @endif
                     </div>
 
-                    <label for="" class="font mt-4">Last Name</label>
-                    <input type="text" name="last_name" class="w-75 mt-2 form-control p-2 ps-3 shadow font" placeholder="ex. Doe">
+                    <div id="last_name" class="w-75">
+                        <label for="" class="font">Last Name</label>
+                        <input type="text" name="last_name" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('last_name') ? " form-error" : "")}}" placeholder="ex. Doe">
+                        @if($errors->first('last_name'))
+                            <small class="form-text d-block text-danger">{{ $errors->first('last_name') }}</small>
+                        @endif
+                    </div>
 
-                    <label for="" class="font mt-4">Email Address</label>
-                    <input type="email" name="email_address" class="w-75 mt-2 form-control p-2 ps-3 shadow font" placeholder="you@example.com">
-
-                    <label for="" class="font mt-4">Password</label>
-                    <input type="password" name="password" class="w-75 mt-2 form-control p-2 ps-3 shadow font" placeholder="8 Characters or longer">
+                    <div id="email" class="w-75">
+                        <label for="" class="font">Email Address</label>
+                        <input type="email" name="email_address" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="ex. you@example.com">
+                        @if($errors->first('email_address'))
+                            <small class="form-text d-block text-danger">{{ $errors->first('email_address') }}</small>
+                        @endif
+                    </div>
+                    
+                    <div id="password" class="w-75">
+                        <label for="" class="font">Password</label>
+                        <input type="password" name="password" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('password') ? " form-error" : "")}}" placeholder="Must be 8 characters or long">
+                        @if($errors->first('password'))
+                            <small class="form-text d-block text-danger">{{ $errors->first('password') }}</small>
+                        @endif
+                    </div>
                  
                     <input type="submit" value="Create your account" class="btn btn-primary text-light w-75 p-3 fs-5 mt-4">
 
