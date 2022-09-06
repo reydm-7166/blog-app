@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Users;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+
 
 class RegisterController extends Controller
 {
@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'profile_picture' => 'pphehe'  
         ]);
         
-        return view('user.login');
+        return back()->with('success', "Account Created Successfully!");
     }
 
     /**

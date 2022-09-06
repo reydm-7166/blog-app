@@ -6,9 +6,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
         @import url('https://fonts.googleapis.com/css2?family= Lexend+Deca: wght@300;400 &display=swap');
-
     </style>
+@endsection
 
+@section('javascript')
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="{{ asset('js/register_fade_success.js') }}"></script>
     
 @endsection
 
@@ -21,13 +24,18 @@
 <body class="bg-secondary w-100">
     <main class="bg-primary w-75">
         <section id="left">
-
+            @if(Session::has('success'))
+                <div id="success" class="alert alert-success p-3 border rounded">
+                    <p class="font fs-4 text-success d-inline-block">{{  Session::get('success') }}</p>
+                    <img src="img/success.png" width="30px" height="30px" alt="">
+                </div>
+            @endif
             <img src="img/iconregister.jpg" class="img-fluid" alt="">
         </section>
         <section class="bg-light" id="right">
             <p class="font mt-3 d-inline-block me-3" id="rightp">Already have an account?</p>
 
-            <button class="btn btn-primary d-inline-block border-white font"><a href="{{ route('login.index') }}" class="text-decoration-none text-light">Log in</a></button>
+            <button class="btn btn-primary d-inline-block border-white font"><a href="{{ route('login.index') }}" class="text-decoration-none text-white">Log in</a></button>
             
             <h2 class="font fw-bolder mt-3 d-block">Create your account</h2>
 
