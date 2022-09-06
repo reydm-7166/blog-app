@@ -15,7 +15,7 @@
     <main class="bg-secondary m-auto mt-5 w-75 border rounded shadow-lg text-center p-5 border-0" id="container">
         <section id="left" class="d-inline-block shadow-lg border text-start rounded bg-white align-top p-2 ps-5 pe-5">
             <p class="mt-5 d-block fs-1 fw-bolder">Login</p>
-            <p class="d-block font">Don't have an account yet? <a href="" class="font">Register here!</a></p>
+            <p class="d-block font">Don't have an account yet? <a href="{{ route('register.create') }}" class="font">Register here!</a></p>
 
 
             <form action="" method="post" class="d-block mt-5">
