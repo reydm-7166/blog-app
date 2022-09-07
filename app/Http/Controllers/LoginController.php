@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -14,6 +17,31 @@ class LoginController extends Controller
     public function index()
     {
         return view('user.login');
+    }
+
+    public function submit(Request $request){
+        $validated = Validator::make($request->all(), [
+            'email_address' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        $email = User::where('email_address', '=', $request->email_address)->pluck('id')->all();
+
+
+        if($email){
+            if(Auth::attempt(['id' => $email[0], 'email_address' => $request->email_address, 'password' => $request->password])) {
+                return redirect()->route('post.index');
+            }
+            return redirect()->back()->withInput()->withErrors(
+                        [
+                            'password' => 'Wrong password!'
+                        ]);
+        }
+
+        return redirect()->back()->withInput()->withErrors(
+            [
+                'email_address' => 'Email not registered yet!',
+            ]);
     }
 
     /**

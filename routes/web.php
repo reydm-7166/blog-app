@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,11 @@ Route::get('/', function () {
 
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
 
+Route::post('login/submit',  [LoginController::class, 'submit'])->name('login.submit');
+
 Route::get('register', [RegisterController::class, 'create'])->name('register.create');
 
 Route::post('register/submit', [RegisterController::class, 'store'])->name('register.store');
+
+Route::get('/home', [PostController::class, 'index'])->name('post.index');
 

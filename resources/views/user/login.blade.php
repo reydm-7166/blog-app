@@ -17,18 +17,27 @@
             <p class="mt-5 d-block fs-1 fw-bolder">Login</p>
             <p class="d-block font">Don't have an account yet? <a href="{{ route('register.create') }}" class="font">Register here!</a></p>
 
+            <form action="{{ route('login.submit') }}" method="POST" class="d-block mt-4">
+                @csrf
+                <div id="form">
+                    <label for="" class="form-label mb-2">Email Address</label>
+                    <input type="email" name="email_address" value="{{ old('email_address') }}" class="form-control mt-1 p-3 border-2{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="you@example.com">
+                    @if($errors->first('email_address'))
+                        <small class="form-text d-block text-danger fw-bold">{{ $errors->first('email_address') }}</small>
+                    @endif
+                </div>
 
-            <form action="" method="post" class="d-block mt-5">
-                <label for="" class="form-label mb-2">Email Address</label>
-                <input type="email" class="form-control mt-1 p-3 border-2" placeholder="you@example.com">
-
-                <label for="" class="form-label mt-3">Password</label>
-                <input type="text" class="form-control mb-2 p-3 border-2" placeholder="8 Characters or more">
-
-                <input type="checkbox" class="mt-4" name="checkbox">
+                <div id="form">
+                    <label for="" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control mb-2 p-3 border-2 {{($errors->first('password') ? " form-error" : "")}}" placeholder="8 Characters or more">
+                    @if($errors->first('password'))
+                        <small class="form-text d-block text-danger fw-bold">{{ $errors->first('password') }}</small>
+                    @endif
+                </div>
+                <input type="checkbox" class="mt-2" name="checkbox">
                 <label class="form-check-label">Remember me</label>
 
-                <input type="submit" class="btn btn-primary d-block mt-4 w-100 fs-4 p-3 fw-bolder shadow mb-1" id="button" value="LOGIN">
+                <input type="submit" class="btn btn-primary d-block mt-2 w-100 fs-4 p-3 fw-bolder shadow mb-1" id="button" value="LOGIN">
             </form>
 
                 <p class="text-center font mt-4">__________ or login with __________ </p>

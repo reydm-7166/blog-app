@@ -45,25 +45,25 @@
 
                     <div id="first_name" class="w-75">
                         <label for="" class="font">First Name</label>
-                        <input type="text" name="first_name" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('first_name') ? " form-error" : "")}}" placeholder="ex. John">
+                        <input type="text" name="first_name" required value="{{ old('first_name') }}" class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('first_name') ? " form-error" : "")}}" placeholder="ex. John">
                         @if($errors->first('first_name'))
-                            <small class="form-text d-block text-danger">{{ $errors->first('first_name') }}</small>
+                            <small class="form-text d-block text-danger fw-bold">{{ $errors->first('first_name') }}</small>
                         @endif
                     </div>
 
                     <div id="last_name" class="w-75">
                         <label for="" class="font">Last Name</label>
-                        <input type="text" name="last_name" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('last_name') ? " form-error" : "")}}" placeholder="ex. Doe">
+                        <input type="text" name="last_name" required value="{{ old('last_name') }}"class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('last_name') ? " form-error" : "")}}" placeholder="ex. Doe">
                         @if($errors->first('last_name'))
-                            <small class="form-text d-block text-danger">{{ $errors->first('last_name') }}</small>
+                            <small class="form-text d-block text-danger fw-bold">{{ $errors->first('last_name') }}</small>
                         @endif
                     </div>
 
                     <div id="email" class="w-75">
                         <label for="" class="font">Email Address</label>
-                        <input type="email" name="email_address" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="ex. you@example.com">
+                        <input type="email" name="email_address" required value="{{ old('email_address') }}"class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="ex. you@example.com">
                         @if($errors->first('email_address'))
-                            <small class="form-text d-block text-danger">{{ $errors->first('email_address') }}</small>
+                            <small class="form-text d-block text-danger fw-bold">{{ $errors->first('email_address') }}</small>
                         @endif
                     </div>
                     
@@ -71,7 +71,7 @@
                         <label for="" class="font">Password</label>
                         <input type="password" name="password" required class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('password') ? " form-error" : "")}}" placeholder="Must be 8 characters or long">
                         @if($errors->first('password'))
-                            <small class="form-text d-block text-danger">{{ $errors->first('password') }}</small>
+                            <small class="form-text d-block text-danger fw-bold">{{ $errors->first('password') }}</small>
                         @endif
                     </div>
                  
