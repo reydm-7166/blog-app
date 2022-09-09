@@ -20,9 +20,9 @@ class LoginController extends Controller
     }
 
     public function submit(Request $request){
-        $validated = Validator::make($request->all(), [
+        $this->validate($request, [
             'email_address' => 'required|email',
-            'password' => 'required|min:8'
+            'password' => 'required'
         ]);
 
         $email = User::where('email_address', '=', $request->email_address)->pluck('id')->all();
@@ -32,16 +32,16 @@ class LoginController extends Controller
             if(Auth::attempt(['id' => $email[0], 'email_address' => $request->email_address, 'password' => $request->password])) {
                 return redirect()->route('post.index');
             }
-            return redirect()->back()->withInput()->withErrors(
-                        [
-                            'password' => 'Wrong password!'
-                        ]);
+            return redirect()
+                        ->back()
+                        ->withInput()
+                        ->withErrors(['password' => 'Incorrect password!']);
         }
 
-        return redirect()->back()->withInput()->withErrors(
-            [
-                'email_address' => 'Email not registered yet!',
-            ]);
+        return redirect()
+                        ->back()
+                        ->withInput()
+                        ->withErrors(['email_address' => 'Email is not registered yet!',]);
     }
 
     /**
