@@ -12,7 +12,7 @@
 @section('body')
 
 <body class="w-100 p-0">
-    <main class="bg-secondary m-auto mt-5 w-75 border rounded shadow-lg text-center p-5 border-0" id="container">
+    <main class="m-auto mt-5 w-75 border rounded shadow-lg text-center p-5 border-0" id="container">
         <section id="left" class="d-inline-block shadow-lg border text-start rounded bg-white align-top p-2 ps-5 pe-5">
             <p class="mt-5 d-block fs-1 fw-bolder">Login</p>
             <p class="d-block font">Don't have an account yet? <a href="{{ route('register.create') }}" class="font">Register here!</a></p>
@@ -21,7 +21,7 @@
                 @csrf
                 <div id="form">
                     <label for="" class="form-label mb-2">Email Address</label>
-                    <input type="email" name="email_address" value="{{ old('email_address') }}" class="form-control mt-1 p-3 border-2{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="you@example.com">
+                    <input type="email" name="email_address" required value="{{ old('email_address') }}" class="form-control mt-1 p-3 border-2{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="you@example.com">
                     @if($errors->first('email_address'))
                         <small class="form-text d-block text-danger fw-bold">{{ $errors->first('email_address') }}</small>
                     @endif

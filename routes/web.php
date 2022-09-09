@@ -16,10 +16,6 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('login', [LoginController::class, 'index'])->name('login.index');
 
 Route::post('login/submit',  [LoginController::class, 'submit'])->name('login.submit');
@@ -29,4 +25,17 @@ Route::get('register', [RegisterController::class, 'create'])->name('register.cr
 Route::post('register/submit', [RegisterController::class, 'store'])->name('register.store');
 
 Route::get('/home', [PostController::class, 'index'])->name('post.index');
+
+Route::get('/', function () {
+    return view('user.index');
+});
+
+Route::get('/generator', function () {
+    return view('user.generator');
+});
+
+Route::get('/result', function () {
+    return view('user.result');
+});
+
 

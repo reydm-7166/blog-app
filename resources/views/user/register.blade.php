@@ -30,7 +30,7 @@
                     <img src="img/success.png" width="30px" height="30px" alt="">
                 </div>
             @endif
-            <img src="img/iconregister.jpg" class="img-fluid" alt="">
+            <img src="img/background.png" class="img-fluid" alt="">
         </section>
         <section class="bg-light" id="right">
             <p class="font mt-3 d-inline-block me-3" id="rightp">Already have an account?</p>
@@ -63,7 +63,7 @@
                         <label for="" class="font">Email Address</label>
                         <input type="email" name="email_address" required value="{{ old('email_address') }}"class="w-100 mt-2 form-control p-2 ps-3 shadow font{{($errors->first('email_address') ? " form-error" : "")}}" placeholder="ex. you@example.com">
                         @if($errors->first('email_address'))
-                            <small class="form-text d-block text-danger fw-bold">{{ $errors->first('email_address') }}</small>
+                            <small class="form-text d-block text-danger fw-bold">{{ $errors->first('email_address') }} <a href="{{route('login.index')}}" class="text-primary fst-italic">Login here</a></small>
                         @endif
                     </div>
                     
