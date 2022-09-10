@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', [LoginController::class, 'index'])->name('login.index');
+// LOGIN REGISTER CONTROLLERS
+
+Route::get('login', [LoginController::class, 'index'])->middleware('guest')->name('login.index');
 
 Route::post('login/submit',  [LoginController::class, 'submit'])->name('login.submit');
 
@@ -28,5 +31,9 @@ Route::get('register', [RegisterController::class, 'create'])->name('register.cr
 
 Route::post('register/submit', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('/home', [PostController::class, 'index'])->name('post.index');
 
+// USER CONTROLLERS
+
+Route::get('/home', [PostController::class, 'index'])->middleware('auth')->name('post.index');
+
+Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
