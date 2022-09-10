@@ -9,20 +9,18 @@
         background-color: rgb(140, 201, 60);
         
         form {
-            margin-left: 30rem;
+            
             vertical-align: top;
             
             #search {
-                width: 200%;
+                width: 100%;
                 background-color: white;
             }
         }
-
-        ul {
-            li {
-                a {
-                    
-                }
+        #nav_icons {
+           
+            div {
+                margin-right: -1rem;
             }
         }
         .icon {
@@ -30,5 +28,28 @@
             background-size: 24px;
             background-position: 15px 8px;
           }
+        
+        #profile_tab {
+            img {
+                height: 50px;
+                width: 50px;
+                cursor: hand;
+            }
+            img:hover {
+                box-shadow: 0 .5rem 1rem rgba(black, .15);
+            }
+            ul {
+                padding-top: .5rem;
+                padding-bottom: 0;
+                li {
+                    margin-bottom: .5rem;
+                    font-family: 'Montserrat', sans-serif;
+                }
+                li::nth-child(4) {
+                    margin-bottom: 0;
+                }
+            }
+            
+        }
     }
 }
