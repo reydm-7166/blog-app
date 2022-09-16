@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 use Auth;
 
@@ -27,11 +28,18 @@ class LoginController extends Controller
 
         $email = User::where('email_address', '=', $request->email_address)->pluck('id')->all();
 
-
         if($email){
             if(Auth::attempt(['id' => $email[0], 'email_address' => $request->email_address, 'password' => $request->password])) {
+                $request->session()->regenerate();
+                
+                $user = json_decode(Auth::user()->ToJson(), true);
+
+                Session::put('user_data', $user);
+                Session::save();
+
                 return redirect()->route('post.index');
             }
+            
             return redirect()
                         ->back()
                         ->withInput()
