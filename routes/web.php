@@ -17,9 +17,9 @@ use App\Http\Controllers\LogoutController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // LOGIN REGISTER CONTROLLERS
 
@@ -34,6 +34,11 @@ Route::post('register/submit', [RegisterController::class, 'store'])->name('regi
 
 // USER CONTROLLERS
 
-Route::get('/home', [PostController::class, 'index'])->middleware('auth')->name('post.index');
+Route::get('/', [PostController::class, 'index'])->middleware('auth')->name('post.index');
+
+
+Route::post('/create_post', [PostController::class, 'store'])->name('post.store');
+
+
 
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');

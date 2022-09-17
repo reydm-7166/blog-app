@@ -39,14 +39,14 @@
         <span class="visually-hidden">Toggle Dropdown</span>
         </button>
 
-        <ul class="dropdown-menu shadow">
-            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user me-3"></i>View Profile</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-question me-4"></i>Help</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bug me-3"></i>Report</a></li>
+        <ul class="dropdown-menu shadow ps-2 pe-2">
+            <li class="border-bottom"><a class="dropdown-item" href="#"><i class="fa-solid fa-user me-3"></i>View Profile</a></li>
+            <li class="border-bottom"><a class="dropdown-item" href="#"><i class="fa-solid fa-question me-4"></i>Help</a></li>
+            <li class="border-bottom"><a class="dropdown-item" href="#"><i class="fa-solid fa-bug me-3"></i>Report</a></li>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
                 
-                <li><button type="submit" class="dropdown-item"><i class="fa-solid fa-right-from-bracket d-inline-block me-3"></i>Logout</li>
+                <li class="border-bottom"><button type="submit" class="dropdown-item"><i class="fa-solid fa-right-from-bracket d-inline-block me-3"></i>Logout</li>
             </form>
         </ul>
     </div>

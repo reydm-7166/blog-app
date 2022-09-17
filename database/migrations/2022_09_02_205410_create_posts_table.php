@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->integer('like');
+            $table->string('title');
             $table->longText('post_content');
+            $table->integer('like')->nullable();
             $table->timestamps();
         });
     }
