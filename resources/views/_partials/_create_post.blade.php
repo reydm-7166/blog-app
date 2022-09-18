@@ -1,6 +1,6 @@
-<main class="w-50 m-auto mt-2 rounded m-5" id="create_post_container">
+<main class="m-auto mt-2 rounded m-5" id="create_post_container">
 
-    <div id="input_post_container" class="mt-5 w-75 m-auto">
+    <div id="input_post_container" class="mt-3 w-75 m-auto">
       @if(Session::has('success'))
           <div id="success" class="alert alert-success p-3 border rounded">
               <p class="font fs-4 text-success d-inline-block">{{  Session::get('success') }}</p>

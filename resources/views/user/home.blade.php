@@ -22,7 +22,12 @@
 
     @include('_partials._navigation_bar')
     
-    @include('_partials._create_post')
-    
+    <main id="user_content_container" class="d-flex justify-content-between align-self-center mt-4">
+        @include('_partials._trending_tags')
+
+        @include('_partials._newsfeed_posts')
+
+        @include('_partials._open_space')
+    </main>
 </body>
 
