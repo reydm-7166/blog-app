@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 use App\Models\Post;
 use Auth;
 use Illuminate\Http\Request;
@@ -16,7 +17,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('user.home');
+        $newsfeed_posts = User::join('posts', 'posts.user_id', '=', 'users.id')
+                                ->orderBy('posts.created_at', 'desc')
+                                ->get()
+                                ->toJson();
+
+        return view('user.home')->with('newsfeed_posts', json_decode($newsfeed_posts));
     }
 
     /**

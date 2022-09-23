@@ -10,7 +10,6 @@
         position: fixed; /* Set the navbar to fixed position */
         top: 0; /* Position the navbar at the top of the page */
         width: 100%; /* Full width */
-        z-index: 1;
         
         form {
             
@@ -57,7 +56,11 @@
         }
     }
 }
-
+#profile_images_container {
+    margin-top: 4.3rem;
+    width: 100%;
+    min-height: 55vh;
+}
 #create_post_container {
     height: 14vh;
     width: 100%;
@@ -68,8 +71,8 @@
 }
 
 #user_content_container {
-    min-height: 80vh;
-    margin-top: 5rem;  // SUBJECT TO CHANGE
+    min-height: 80vh; // SUBJECT TO CHANGE
+    margin-top: 2rem;
 
     #newsfeed_container {
         width: 42%;
@@ -84,18 +87,9 @@
     width: 100%;
     min-height: 25vh;
 
-    #posts_container {
-        width: 91%;
-        
-    }
-    #votes_container {
-        width: 8%;
-        min-height: 15vh;
-    }
-
+    
     #post_author_info {
         height: 6.5vh;
-        border-bottom: 1px solid #5f5858;
 
         #author_image {
             width: 9%;
@@ -121,24 +115,21 @@
         }
         #author_options {
             width: 15%;
-
-            #dropdown_options {
-                z-index: 0;
-            }
         }
     }
-    #post_content {
-        border-bottom: 1px solid #5f5858;
+
+    #post_content, #comment_share_button {
+        border-bottom: 1px solid black;
+    }
+
+    #votes {
+        width: 5%;
+        height: 100%;
     }
 }
 
 
 #trending_container {
     max-height: 100vh;
-    border: 1px black solid;
-    border-radius: .25rem;
 }
 
-#open_space_container {
-    max-height: 70vh;
-}

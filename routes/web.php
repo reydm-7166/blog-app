@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::get('/', [PostController::class, 'index'])->middleware('auth')->name('pos
 
 Route::post('/create_post', [PostController::class, 'store'])->name('post.store');
 
-
-
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+
+// PROFILE CONTROLLERS
+
+Route::get('/{id}/profile', [ProfileController::class, 'index'])->middleware('auth')->name('profile.index');

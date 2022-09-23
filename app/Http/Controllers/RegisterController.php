@@ -46,8 +46,8 @@ class RegisterController extends Controller
 
 
         User::create([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'first_name' => ucfirst($request->first_name),
+            'last_name' => ucfirst($request->last_name),
             'age' => 18,
             'email_address' => $request->email_address,
             'password' => Hash::make($request->password),

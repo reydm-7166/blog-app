@@ -1,5 +1,4 @@
-<main class="m-auto mt-2 rounded m-5" id="create_post_container">
-
+<main class="m-auto mt-2 rounded m-5 mb-2 shadow bg bg-light" id="create_post_container">
     <div id="input_post_container" class="mt-3 w-75 m-auto">
       @if(Session::has('success'))
           <div id="success" class="alert alert-success p-3 border rounded">
@@ -8,7 +7,7 @@
           </div>
       @endif
             {{-- CREATE POST MODAL TRIGGER/BUTTON--}}
-            <label for="" class="form-label font fs-2 text-light">Create Post</label>
+            <label for="" class="form-label font fs-2 text-dark mt-3">Create Post</label>
 
             <button type="submit" name="" id="create_post_button" class="form-control w-100 ps-4 pe-4" data-bs-toggle="modal" data-bs-target="#create_post_modal">
                 Suggest Recipe. What do you have in mind, {{ $user_data['first_name'] }}?
