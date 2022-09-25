@@ -17,4 +17,13 @@ class ProfileController extends Controller
 
         return view('user.profile')->with('newsfeed_posts', json_decode($newsfeed_posts));
     }
+
+    public function edit_post($id) {
+
+        $post_data = Post::where('id', $id)->get();
+
+        return response()->json([
+            'post_data' => $post_data
+        ]);
+    }
 }

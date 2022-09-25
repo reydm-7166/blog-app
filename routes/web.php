@@ -46,3 +46,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 // PROFILE CONTROLLERS
 
 Route::get('/{id}/profile', [ProfileController::class, 'index'])->middleware('auth')->name('profile.index');
+
+Route::get('/edit-data/{id}', [ProfileController::class, 'edit_post'])->middleware('auth');

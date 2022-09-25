@@ -29,5 +29,38 @@
         $(document).ready(function(){
             $('#create_post_modal').modal('show');
         });
+
+        
     </script>
 @endif
+
+<script>
+
+    $(document).ready(function(){
+
+        $(document).on('click', '#edit_post', function(){
+            var id = $(this).val();
+
+            edit_modal(id);
+
+            function edit_modal(id) {
+                $('.modal').on('hidden.bs.modal', function(){
+                    $(this).find('form')[0].reset();
+                });
+
+                $.ajax({
+                    type: "get",
+                    url: "/edit-data/"+id,
+                    dataType: "json",
+                    success: function (response) {
+                        $.each(response.post_data, function (key, item) { 
+                            $('input[type=text]#input_post_title').val(item.post_content);
+                            $('textarea#post_content').val(item.post_content);
+                        });
+                    }
+                });
+            }
+        });
+    });
+    
+</script>

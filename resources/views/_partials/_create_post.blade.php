@@ -25,14 +25,14 @@
                       <form action="{{ route('post.store') }}" method="POST">
                           @csrf
                           <div id="post_title" class="mb-3">
-                            <input type="text" name="post_title" id="" class="form-control font p-3" placeholder="Add Title">
+                            <input type="text" name="post_title" id="input_post_title" class="form-control font p-3" placeholder="Add Title" value="">
                             @if($errors->first('post_title'))
                                 <small class="form-text d-block text-danger fw-bold">{{ $errors->first('post_title') }}</small>
                             @endif
                           </div>
                           
                           <div id="post_content">
-                            <textarea name="post_content" id="" rows="20" class="bg bg-light border rounded text-dark font w-100 p-3 form-control" placeholder="Add content"></textarea>
+                            <textarea name="post_content" id="post_content" rows="20" class="bg bg-light border rounded text-dark font w-100 p-3 form-control" value="" placeholder="Add content"></textarea>
                             @if($errors->first('post_content'))
                                 <small class="form-text d-block text-danger fw-bold">{{ $errors->first('post_content') }}</small>
                             @endif
@@ -47,5 +47,4 @@
                 </div>
             </div>
     </div>
-    
 </main>
