@@ -28,7 +28,7 @@
                   <li><a class="dropdown-item" href="#">Hide</a></li>
 
                   @if ($user_data['id'] == $posts->user_id)
-                    <li><button class='dropdown-item' name="edit_post" id="edit_post" data-bs-toggle="modal" data-bs-target="#create_post_modal" value="{{$posts->id}}">Edit</button></li>
+                    <li><button class='dropdown-item' name="edit_post" id="edit_post" data-bs-toggle="modal" data-bs-target="#edit_post_modal" value="{{$posts->id}}">Edit</button></li>
                   @endif
 
                   <li><a class="dropdown-item" href="#">Report</a></li>

@@ -28,6 +28,7 @@
     <script>
         $(document).ready(function(){
             $('#create_post_modal').modal('show');
+
         });
 
         
@@ -38,15 +39,24 @@
 
     $(document).ready(function(){
 
+        $('.edit-cancel').click(function(){
+            $('#edit_post_modal').hide();
+        })
+
         $(document).on('click', '#edit_post', function(){
             var id = $(this).val();
+
+            // $('#staticBackdropLabel').text("Edit Post");
 
             edit_modal(id);
 
             function edit_modal(id) {
-                $('.modal').on('hidden.bs.modal', function(){
+                $('#edit_post_modal').show();
+
+                $('#edit_post_modal').on('hidden.bs.modal', function(){
                     $(this).find('form')[0].reset();
                 });
+
 
                 $.ajax({
                     type: "get",
@@ -61,6 +71,8 @@
                 });
             }
         });
+
+
     });
     
 </script>
