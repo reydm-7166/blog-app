@@ -10,7 +10,7 @@
   </div>
 
   <div id="posts_container" class="d-inline-block">
-    <div id="post_author_info" class="d-flex">
+    <div id="post_author_info" class="d-flex me-3">
         <div id="author_image" class="pe-2">
             <img src="/img/profile_picture.jpg" alt="aa" class="border rounded-circle border-0" id="profile_picture">
         </div>
@@ -18,10 +18,10 @@
             <small class="font fw-bold d-block fs-6"><a href="{{ route('profile.index', $posts->user_id) }}" class="text-dark">{{$posts->first_name}} {{$posts->last_name}}</small></a>
             <small class="font fw-light">2h ago</small>
         </div>
-        <div id="author_options" class="ms-auto d-flex align-items-center">
+        <div id="author_options" class="ms-auto d-flex align-items-center flex-row-reverse">
             <div class="btn-group" id="dropdown_options">
               
-                <button type="button" class="btn btn-primary dropdown-toggle ms-5 dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div id="post_content" class="text-break p-2">
+    <div id="post_content" class="text-break p-2 me-3">
         <p>{{ $posts->post_content }}</p>
     </div>
 

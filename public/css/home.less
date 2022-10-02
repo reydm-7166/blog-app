@@ -68,11 +68,12 @@
 }
 
 #user_content_container {
-    min-height: 80vh;
+    min-height: 85vh;
     margin-top: 5rem;  // SUBJECT TO CHANGE
 
     #newsfeed_container {
-        width: 42%;
+        width: 69%;
+        margin-left: 1rem;
     }
     #posts_container {
         width: 90%;
@@ -86,6 +87,10 @@
 #posts {
     width: 100%;
     min-height: 25vh;
+
+    // &:nth-child(2n+1) {
+    //     // border: 2px dotted black; ///// CHANGE THIS SOON IN REVERSE
+    // }
 
     #posts_container {
         width: 91%;
@@ -137,6 +142,7 @@
 
 
 #trending_container {
+    width: 20%;
     max-height: 100vh;
     border: 1px black solid;
     border-radius: .25rem;
