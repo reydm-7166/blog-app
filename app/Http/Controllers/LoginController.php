@@ -29,29 +29,32 @@ class LoginController extends Controller
 
         $email = User::where('email_address', '=', $request->email_address)->pluck('id')->all();
 
-        if($email){
-            if(Auth::attempt(['id' => $email[0], 'email_address' => $request->email_address, 'password' => $request->password])) {
-                $request->session()->regenerate();
-                
-                $user = json_decode(Auth::user()->ToJson(), true);
-
-                Session::put('user_data', $user);
-                Session::save();
-
-                return redirect()->route('post.index');
-            }
-            
+        if(!$email){
             return redirect()
                         ->back()
                         ->withInput()
-                        ->withErrors(['password' => 'Incorrect password!']);
+                        ->withErrors(['email_address' => 'Email is not registered yet!',]);
         }
 
+        if(Auth::attempt(['id' => $email[0], 'email_address' => $request->email_address, 'password' => $request->password])) {
+            $request->session()->regenerate();
+            
+            $user = json_decode(Auth::user()->ToJson(), true);
+
+            Session::put('user_data', $user);
+            Session::save();
+
+            return redirect()->route('post.index');
+        }
+        
         return redirect()
-                        ->back()
-                        ->withInput()
-                        ->withErrors(['email_address' => 'Email is not registered yet!',]);
-    }
+                    ->back()
+                    ->withInput()
+                    ->withErrors(['password' => 'Incorrect password!']);
+        }
+
+                    
+ 
 
     /**
      * Show the form for creating a new resource.
