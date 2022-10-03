@@ -1,11 +1,11 @@
-
+{{-- 
 
 @foreach($newsfeed_posts as $posts)
 
-<div id="posts" class="rounded light-gray-bg shadow p-3 ps-4 pb-4 mb-2">
+<div id="posts" class="rounded light-gray-bg shadow p-3 ps-4 pb-4 mb-2 posts">
   <div id="votes_container" class="d-inline-block align-top text-center">
     <p class="font fw-bold">Up</p> 
-    <p class="font"></p>
+    <p class="font" id="vote_count"></p>
     <p class="font fw-bold">Down</p> 
   </div>
 
@@ -15,7 +15,7 @@
             <img src="/img/profile_picture.jpg" alt="aa" class="border rounded-circle border-0" id="profile_picture">
         </div>
         <div id="author_information" class="pt-1 ps-2">
-            <small class="font fw-bold d-block fs-6"><a href="{{ route('profile.index', $posts->user_id) }}" class="text-dark">{{$posts->first_name}} {{$posts->last_name}}</small></a>
+            <small class="font fw-bold d-block fs-6"><a href="{{ route('profile.index', $posts->user_id) }}" class="text-dark author_name">{{$posts->first_name}} {{$posts->last_name}}</a></small>
             <small class="font fw-light">2h ago</small>
         </div>
         <div id="author_options" class="ms-auto d-flex align-items-center">
@@ -28,7 +28,7 @@
                   <li><a class="dropdown-item" href="#">Hide</a></li>
 
                   @if ($user_data['id'] == $posts->user_id)
-                    <li><button class='dropdown-item' name="edit_post" id="edit_post" data-bs-toggle="modal" data-bs-target="#edit_post_modal" value="{{$posts->id}}">Edit</button></li>
+                    <li><button class='dropdown-item edit_post' name="edit_post" id="edit_post" data-bs-toggle="modal" data-bs-target="#edit_post_modal" value="{{$posts->id}}">Edit</button></li>
                   @endif
 
                   <li><a class="dropdown-item" href="#">Report</a></li>
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <div id="post_content" class="text-break p-2">
+    <div id="post_content" class="text-break p-2 post_content">
         <p>{{ $posts->post_content }}</p>
     </div>
 
@@ -50,4 +50,4 @@
   </div>
 </div>
 
-@endforeach
+@endforeach --}}

@@ -8,7 +8,7 @@
     <ul class="nav d-inline-block float-end me-5 d-flex justify-content-start" id="nav_icons">
         <div class="d-inline-block">
             <li class="nav-item">
-                <a href="{{ route('post.index') }}" class="nav-link"><i class="fa-solid fa-house fs-2"></i></a>
+                <a href="{{ route('post.index') }}" id="home" class="nav-link"><i class="fa-solid fa-house fs-2"></i></a>
             </li>
         </div>
         <span class="badge bg-primary rounded-pill d-inline-block align-top align-self-baseline">14</span>

@@ -40,6 +40,11 @@ Route::get('/', [PostController::class, 'index'])->middleware('auth')->name('pos
 
 Route::post('/create_post', [PostController::class, 'store'])->name('post.store');
 
+
+Route::get('/newsfeed/{id}', [PostController::class, 'get_post_ajax'])->middleware('auth');
+
+// LOGOUT CONTROLLERS
+
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 
@@ -48,3 +53,5 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/{id}/profile', [ProfileController::class, 'index'])->middleware('auth')->name('profile.index');
 
 Route::get('/edit-data/{id}', [ProfileController::class, 'edit_post'])->middleware('auth');
+
+

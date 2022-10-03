@@ -17,12 +17,27 @@ class PostController extends Controller
      */
     public function index()
     {
+        $id = auth()->id();
+
         $newsfeed_posts = User::join('posts', 'posts.user_id', '=', 'users.id')
                                 ->orderBy('posts.created_at', 'desc')
+                                ->where('posts.user_id', '!=', '$id')
                                 ->get()
                                 ->toJson();
 
         return view('user.home')->with('newsfeed_posts', json_decode($newsfeed_posts));
+    }
+
+    public function get_post_ajax($id){
+
+        $newsfeed_ajax = User::join('posts', 'posts.user_id', '=', 'users.id')
+                                ->orderBy('posts.created_at', 'desc')
+                                ->where('posts.user_id', '!=', '$id')
+                                ->get();
+
+        return response()->json([
+            'post_data' => $newsfeed_ajax
+        ]);
     }
 
     /**

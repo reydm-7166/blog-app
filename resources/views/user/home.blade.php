@@ -20,6 +20,8 @@
 
     <?php (!empty(Session::get('user_data'))) ? $user_data = Session::get('user_data') : ""; ?>
 
+    <input type="hidden" name="current_id" id="current_id" value="{{$user_data['id']}}">
+
     @include('_partials._navigation_bar')
     
     <main id="user_content_container" class="d-flex justify-content-between align-self-center">
