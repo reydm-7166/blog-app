@@ -70,6 +70,7 @@
 #user_content_container {
     min-height: 85vh;
     margin-top: 5rem;  // SUBJECT TO CHANGE
+    width: 100%;
 
     #newsfeed_container {
         width: 69%;
@@ -77,6 +78,7 @@
     }
     #posts_container {
         width: 90%;
+        
     }
 }
 
@@ -86,8 +88,7 @@
 
 #posts {
     width: 100%;
-    min-height: 25vh;
-
+    height: 70vh;
     // &:nth-child(2n+1) {
     //     // border: 2px dotted black; ///// CHANGE THIS SOON IN REVERSE
     // }
@@ -98,8 +99,15 @@
     }
     #votes_container {
         width: 8%;
-        min-height: 15vh;
+        height: 100%;
+        
     }
+    #vote_buttons {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+
 
     #post_author_info {
         height: 6.5vh;
@@ -137,6 +145,7 @@
     }
     #post_content {
         border-bottom: 1px solid #5f5858;
+        min-height: 34vh;
     }
 }
 

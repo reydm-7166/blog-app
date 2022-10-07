@@ -24,19 +24,21 @@
 </head>
 @yield('body')
 </html>
+
+    {{-- PANG POPUP NG MODAL TO --}}
 @if($errors->any())
     <script>
         $(document).ready(function(){
             $('#create_post_modal').modal('show');
-
         });
 
         
     </script>
 @endif
 
+{{-- SA AJAX TONG SCRIPT NA TO --}}
 <script>
-
+    
     $(document).ready(function(){
 
         $('.edit-cancel').click(function(){

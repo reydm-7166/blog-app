@@ -14,7 +14,7 @@
 
 @section('body')
 
-<body class="bg-secondary w-100">
+<body class="w-100">
 
     {{-- THIS IS THE NAVIGATION BAR --}}
 
